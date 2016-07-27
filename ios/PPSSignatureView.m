@@ -1,4 +1,5 @@
 #import "PPSSignatureView.h"
+#import "RSSignatureViewManager.h"
 #import <OpenGLES/ES2/glext.h>
 
 #define             STROKE_WIDTH_MIN 0.004 // Stroke width determined by touch velocity
@@ -116,6 +117,8 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 @implementation PPSSignatureView {
 }
 
+@synthesize manager;
+
 - (void)commonInit {
 	context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
 	
@@ -147,9 +150,9 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 		[self addGestureRecognizer:tap];
 		
 		// Erase with long press
-		UILongPressGestureRecognizer *longer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
-		longer.cancelsTouchesInView = YES;
-		[self addGestureRecognizer:longer];
+//		UILongPressGestureRecognizer *longer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPress:)];
+//		longer.cancelsTouchesInView = YES;
+//		[self addGestureRecognizer:longer];
 	}
 	else
 		[NSException raise:@"NSOpenGLES2ContextException" format:@"Failed to create OpenGL ES2 context"];
@@ -373,6 +376,8 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 	}
 	
 	[self setNeedsDisplay];
+    
+    [self.manager didStartSign];
 }
 
 
@@ -462,6 +467,8 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 	}
 	
 	[self setNeedsDisplay];
+    
+    [self.manager didStartSign];
 }
 
 

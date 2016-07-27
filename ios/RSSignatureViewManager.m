@@ -34,11 +34,17 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 					}];
 }
 
+-(void) didStartSign {
+    [self.bridge.eventDispatcher
+     sendAppEventWithName:@"onDragEvent"
+     body:nil];
+}
+
 RCT_EXPORT_METHOD(saveImage:(id)obj) {
     [self.signView onSaveButtonPressed];
 }
 
-RCT_EXPORT_METHOD(resetImage) {
+RCT_EXPORT_METHOD(resetImage:(id)obj) {
     [self.signView onClearButtonPressed];
 }
 

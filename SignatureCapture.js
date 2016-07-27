@@ -48,12 +48,21 @@ class SignatureCapture extends React.Component {
             'onSaveEvent',
             this.props.onSaveEvent
         );
+
+        this.subscriptionDrag = DeviceEventEmitter.addListener(
+            'onDragEvent',
+            this.props.onDragEvent
+        );
     }
 
     componentWillUnmount() {
         if (this.subscription) {
             this.subscription.remove()
             this.subscription = null;
+        }
+        if (this.subscriptionDrag) {
+            this.subscriptionDrag.remove()
+            this.subscriptionDrag = null;
         }
     }
 
