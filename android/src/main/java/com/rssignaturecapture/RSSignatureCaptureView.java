@@ -29,8 +29,8 @@ import com.rssignaturecapture.utils.ControlTimedPoints;
 import com.rssignaturecapture.utils.Bezier;
 
 public class RSSignatureCaptureView extends View {
-	private static final float STROKE_WIDTH = 5f;
-	private static final float HALF_STROKE_WIDTH = STROKE_WIDTH / 2;
+	private static final float STROKE_WIDTH = 2f;
+	private static final float HALF_STROKE_WIDTH = STROKE_WIDTH;
 
 	private boolean mIsEmpty;
 	private OnSignedListener mOnSignedListener;
@@ -68,8 +68,8 @@ public class RSSignatureCaptureView extends View {
 		mPaint.setStrokeCap(Paint.Cap.ROUND);
 		mPaint.setStrokeJoin(Paint.Join.ROUND);
 
-		mMinWidth = convertDpToPx(8);
-		mMaxWidth = convertDpToPx(16);
+		mMinWidth = convertDpToPx(1);
+		mMaxWidth = convertDpToPx(1);
 		mVelocityFilterWeight = 0.4f;
 		mPaint.setColor(Color.BLACK);
 
@@ -198,7 +198,7 @@ public class RSSignatureCaptureView extends View {
 	}
 
 	private float strokeWidth(float velocity) {
-		return Math.max(mMaxWidth / (velocity + 1), mMinWidth);
+		return mMaxWidth;
 	}
 
 	private ControlTimedPoints calculateCurveControlPoints(TimedPoint s1, TimedPoint s2, TimedPoint s3) {
