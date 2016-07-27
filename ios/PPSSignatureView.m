@@ -210,8 +210,10 @@ static PPSSignaturePoint ViewPointToGL(CGPoint viewPoint, CGRect bounds, GLKVect
 	length = 0;
 	dotsLength = 0;
 	self.hasSignature = NO;
-	
-	[self setNeedsDisplay];
+    
+    [CATransaction begin];
+    [self setNeedsDisplay];
+    [CATransaction commit];
 }
 
 - (UIImage*)imageByCombiningImage:(UIImage*)firstImage withImage:(UIImage*)secondImage {
