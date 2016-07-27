@@ -68,8 +68,8 @@ public class RSSignatureCaptureView extends View {
 		mPaint.setStrokeCap(Paint.Cap.ROUND);
 		mPaint.setStrokeJoin(Paint.Join.ROUND);
 
-		mMinWidth = convertDpToPx(1);
-		mMaxWidth = convertDpToPx(1);
+		mMinWidth = convertDpToPx(3);
+		mMaxWidth = convertDpToPx(3);
 		mVelocityFilterWeight = 0.4f;
 		mPaint.setColor(Color.BLACK);
 
