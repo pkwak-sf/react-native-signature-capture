@@ -58,8 +58,10 @@
 		sign = [[PPSSignatureView alloc]
 						initWithFrame: CGRectMake(0, 0, screen.width, screen.height)
 						context: _context];
+        
+        [sign setManager:self.manager];
 		
-		[self addSubview:sign];
+        [self addSubview:sign];
 	}
 	_loaded = true;
 	_border.path = [UIBezierPath bezierPathWithRect:self.bounds].CGPath;
