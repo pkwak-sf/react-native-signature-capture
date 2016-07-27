@@ -34,4 +34,12 @@ RCT_EXPORT_VIEW_PROPERTY(square, BOOL)
 					}];
 }
 
+RCT_EXPORT_METHOD(saveImage:(id)obj) {
+    NSString* tempPath = [self.signView saveImage];
+}
+
+RCT_EXPORT_METHOD(resetImage) {
+    [self.signView onClearButtonPressed];
+}
+
 @end
