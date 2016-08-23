@@ -19,7 +19,6 @@ import java.lang.Boolean;
 
 
 public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureCaptureMainView> {
-	private Activity mCurrentActivity;
 
 	public static final String PROPS_SAVE_IMAGE_FILE="saveImageFileInExtStorage";
 	public static final String PROPS_VIEW_MODE = "viewMode";
@@ -30,8 +29,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 	public static final int COMMAND_RESET_IMAGE = 2;
 
 
-	public RSSignatureCaptureViewManager(Activity activity) {
-		mCurrentActivity = activity;
+	public RSSignatureCaptureViewManager() {
 	}
 
 	@Override
@@ -77,7 +75,7 @@ public class RSSignatureCaptureViewManager extends ViewGroupManager<RSSignatureC
 	@Override
 	public RSSignatureCaptureMainView createViewInstance(ThemedReactContext context) {
 		Log.d("React"," View manager createViewInstance:");
-		return new RSSignatureCaptureMainView(context, mCurrentActivity);
+		return new RSSignatureCaptureMainView(context);
 	}
 
 	@Override
