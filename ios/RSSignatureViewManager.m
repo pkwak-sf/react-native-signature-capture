@@ -63,12 +63,4 @@ RCT_EXPORT_METHOD(resetImage:(nonnull NSNumber *)reactTag) {
      body:nil];
 }
 
-RCT_EXPORT_METHOD(saveImage:(id)obj) {
-    [self.signView onSaveButtonPressed];
-}
-
-RCT_EXPORT_METHOD(resetImage:(id)obj) {
-    [self.signView onClearButtonPressed];
-}
-
 @end
