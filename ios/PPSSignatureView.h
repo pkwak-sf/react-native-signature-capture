@@ -8,7 +8,7 @@
 @property (assign, nonatomic) UIColor *strokeColor;
 @property (assign, nonatomic) BOOL hasSignature;
 @property (strong, nonatomic) UIImage *signatureImage;
-@property (assign, nonatomic) RSSignatureViewManager *manager;
+@property (nonatomic, strong) RSSignatureViewManager *manager;
 
 - (void)erase;
 

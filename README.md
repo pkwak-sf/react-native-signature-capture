@@ -107,6 +107,8 @@ class CustomComponent extends Component {
 
 + **showNativeButtons** : If this props is made to true, it will display the native buttons "Save" and "Reset".
 
++ **showTitleLabel** : If this props is made to true, it will display the "x_ _ _ _ _ _ _ _ _ _ _" placeholder indicating where to sign.
+
 + **viewMode** : "portrait" or "landscape" change the screen orientation based on boolean value
 
 + **maxSize**  : sets the max size of the image maintains aspect ratio, default is 500
@@ -115,7 +117,7 @@ class CustomComponent extends Component {
 
 + **saveImage()** : when called it will save the image and returns the base 64 encoded string on onSaveEvent() callback
 
-+ **resetSign()** : when called it will clear the image on the canvas
++ **resetImage()** : when called it will clear the image on the canvas
 
 ### Callback Props
 + **onSaveEvent** : Triggered when saveImage() is called, which return Base64 Encoded String and image file path.
@@ -157,6 +159,7 @@ class RNSignatureExample extends Component {
                     onDragEvent={this._onDragEvent}
                     saveImageFileInExtStorage={false}
                     showNativeButtons={false}
+                    showTitleLabel={false}
                     viewMode={"portrait"}/>
 
                 <View style={{ flex: 1, flexDirection: "row" }}>
