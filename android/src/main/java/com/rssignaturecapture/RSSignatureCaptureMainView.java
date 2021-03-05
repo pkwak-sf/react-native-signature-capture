@@ -37,6 +37,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
   int mOriginalOrientation;
   Boolean saveFileInExtStorage = false;
   String viewMode = "portrait";
+  Boolean showBorder = true;
   Boolean showNativeButtons = true;
   Boolean showTitleLabel = true;
   int maxSize = 500;
@@ -56,6 +57,10 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
 
     setLayoutParams(new android.view.ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
         ViewGroup.LayoutParams.MATCH_PARENT));
+  }
+
+  public RSSignatureCaptureView getSignatureView() {
+    return signatureView;
   }
 
   public void setSaveFileInExtStorage(Boolean saveFileInExtStorage) {
@@ -171,7 +176,7 @@ public class RSSignatureCaptureMainView extends LinearLayout implements OnClickL
 
 
       byte[] byteArray = byteArrayOutputStream.toByteArray();
-      String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
+      String encoded = Base64.encodeToString(byteArray, Base64.NO_WRAP);
 
       WritableMap event = Arguments.createMap();
       event.putString("pathName", file.getAbsolutePath());
